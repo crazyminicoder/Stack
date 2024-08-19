@@ -8,7 +8,7 @@ class Stack:
     def __init__(self):
         self.top = None
 
-    def add(self, data):
+    def push(self, data):
         newNode = Node(data)
         if self.top is None:
             self.top = newNode
@@ -17,6 +17,17 @@ class Stack:
         currentNode = self.top
         self.top = newNode
         self.top.next = currentNode
+
+    def pop(self):
+        if self.top is None:
+            print("Stack is empty")
+            return
+
+        popped = self.top
+        print('Top element:', popped.data)
+        next = self.top.next
+        self.top = None
+        self.top = next
 
     def printStack(self):
         if self.top is None:
@@ -30,10 +41,14 @@ class Stack:
 
 
 st = Stack()
-st.add(10)
-st.add(20)
-st.add(30)
-st.add(40)
-st.add(50)
+st.push(10)
+st.push(20)
+st.push(30)
+st.push(40)
+st.push(50)
+
+st.printStack()
+
+st.pop()
 
 st.printStack()
